@@ -334,6 +334,16 @@ a:focus {
     align-content: space-between;
 }
 
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
@@ -356,6 +366,88 @@ a:focus {
     }
 }
 
+/*
+    Component: Nav
+    ---
+    Main navigation of the site
+*/
+.c-nav {
+    font-style: 18px;
+    line-height: 24px;
+}
+
+.c-nav__link {
+    text-decoration: none;
+    font-weight: 400;
+    display: block;
+    /*zonder display block is het default een list item en dus padding wordt anders niet toegepast*/
+    padding: 8px 0;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+    color: #202024;
+}
+
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #5051db;
+}
+
+.c-nav--meta {
+    font-style: 16px;
+}
+
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active {
+    color: #6c6c75;
+}
+
+.is-selected .c-nav__link,
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #5051db;
+}
+
+@media (min-width: 768px) {
+    .c-nav__list {
+        display: flex;
+        margin-left: -16px;
+        /*items aligneren met logo en container*/
+        margin-right: -16px;
+    }
+
+    .c-nav__link {
+        padding: 8px 16px;
+        /*8 boven onder 16 links rechts*/
+    }
+}
+
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+.c-header__nav {
+    display: none;
+}
+
+@media (min-width: 992px) {
+
+    /*standaard wordt navigatie nt getoond --> later javascript om deze via button weer te geven*/
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: wrap row;
+    }
+
+    .c-header__nav {
+        display: block;
+    }
+}
+
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
@@ -364,6 +456,15 @@ a:focus {
     ---
     Utility classes to put specific max widths onto elements
 */
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+.u-pt-clear {
+    padding-top: 0 !important;
+}
+
 .u-max-width-xs {
     max-width: 18em !important;
 }
@@ -642,8 +743,24 @@ a:focus {
 /* Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {}
 */
-/* Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}*/
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .o-row {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+
+    .o-row--md {
+        padding-top: 48px;
+        padding-bottom: 24px;
+    }
+
+    .o-row--lg {
+        padding-top: 72px;
+        padding-bottom: 48px;
+    }
+}
+
 /* Large devices (landscape tablets, desktops, 992px and up)
 @media (min-width: 992px) {}
 */
